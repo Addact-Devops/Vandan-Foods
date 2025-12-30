@@ -1,5 +1,5 @@
 {
-  "name": "vandan-food",
+  "name": "vandan-foods",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -15,12 +15,10 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.33.0",
-    "@strapi/plugin-graphql": "^5.33.0",
-    "@strapi/plugin-users-permissions": "5.33.0",
-    "@strapi/strapi": "5.33.0",
-    "mysql2": "3.9.8",
-    "pg": "^8.16.3",
+    "@strapi/plugin-cloud": "5.33.1",
+    "@strapi/plugin-users-permissions": "5.33.1",
+    "@strapi/strapi": "5.33.1",
+    "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -37,7 +35,7 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "929d9f04-2a70-4458-8df7-084eb21539ad",
-    "installId": "3348faeafbc5aa33f6399f045ccc4c7f3fc3e2fb1744eb063abda68439cf7d0e"
+    "uuid": "116fb709-5603-4807-ab16-2ed980265f50",
+    "installId": "ab997d1951345fcc3b1497fb1de3d929f19ba49725517704ff0b78c9f6558493"
   }
 }
