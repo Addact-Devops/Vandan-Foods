@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_vandan_food_links",
+  "info": {
+    "displayName": "Link",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "href": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "isInternal": {
+      "type": "boolean"
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "_self",
+        "_blank"
+      ]
+    }
+  },
+  "config": {}
+}
