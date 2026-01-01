@@ -1,0 +1,14 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_business_strategies",
+  "info": {
+    "singularName": "our-business-strategy",
+    "pluralName": "our-business-strategies",
+    "displayName": "Our Business Strategy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
