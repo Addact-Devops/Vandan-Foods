@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface VandanFoodBanner extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_banners';
+  info: {
+    displayName: 'Banner';
+  };
+  attributes: {
+    BannerImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    BannerTitle: Schema.Attribute.String;
+  };
+}
+
 export interface VandanFoodCard extends Struct.ComponentSchema {
   collectionName: 'components_vandan_food_cards';
   info: {
@@ -140,6 +153,7 @@ export interface VandanFoodTitle extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'vandan-food.banner': VandanFoodBanner;
       'vandan-food.card': VandanFoodCard;
       'vandan-food.content-block': VandanFoodContentBlock;
       'vandan-food.description': VandanFoodDescription;
