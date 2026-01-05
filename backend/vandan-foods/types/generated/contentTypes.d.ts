@@ -834,6 +834,7 @@ export interface ApiRealIngredientRealIngredient
   };
   attributes: {
     Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    Card: Schema.Attribute.Component<'vandan-food.card', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
