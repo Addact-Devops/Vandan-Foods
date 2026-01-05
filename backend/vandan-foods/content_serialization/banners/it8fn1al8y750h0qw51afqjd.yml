@@ -1,7 +1,7 @@
-id: 10
-documentId: d4jxspfo3l8m55dlrvhmpvu1
+id: 14
+documentId: it8fn1al8y750h0qw51afqjd
 Banner:
-  id: 11
+  id: 15
   BannerTitle: OUR BUSINESS STRATEGY
   BannerImage:
     id: 3
@@ -69,9 +69,9 @@ Banner:
     updatedAt: '2026-01-05T06:27:30.833Z'
     publishedAt: '2026-01-05T06:27:30.833Z'
     locale: null
-ReferenceTitle: Our Business Strategy
-createdAt: '2026-01-05T06:54:33.220Z'
-updatedAt: '2026-01-05T06:54:33.220Z'
+ReferenceTitle: OUR BUSINESS STRATEGY
+createdAt: '2026-01-05T07:17:31.413Z'
+updatedAt: '2026-01-05T07:17:31.413Z'
 publishedAt: null
 createdBy:
   id: 1

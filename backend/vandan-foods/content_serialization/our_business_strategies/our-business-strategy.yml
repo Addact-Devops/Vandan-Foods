@@ -1,13 +1,13 @@
 id: 1
 documentId: eddadtw850bp27dn82plxxqu
 Banner:
-  id: 10
-  documentId: d4jxspfo3l8m55dlrvhmpvu1
-  createdAt: '2026-01-05T06:54:33.220Z'
-  updatedAt: '2026-01-05T06:54:33.220Z'
+  id: 14
+  documentId: it8fn1al8y750h0qw51afqjd
+  createdAt: '2026-01-05T07:17:31.413Z'
+  updatedAt: '2026-01-05T07:17:31.413Z'
   publishedAt: null
   locale: null
-  ReferenceTitle: Our Business Strategy
+  ReferenceTitle: OUR BUSINESS STRATEGY
 HeadLine:
   - id: 4
     Title: 1. Increase our production process through Solvent Extraction.
@@ -177,7 +177,7 @@ HeadLine:
       providing excellent services to the satisfaction of the
       customers.</span></span></p>
 createdAt: '2026-01-05T06:49:08.548Z'
-updatedAt: '2026-01-05T06:55:23.856Z'
+updatedAt: '2026-01-05T07:18:02.795Z'
 publishedAt: null
 createdBy:
   id: 1
