@@ -5,25 +5,25 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "SubTitle": {
+    "subTitle": {
       "type": "string"
     },
-    "Link": {
+    "link": {
       "type": "component",
       "component": "vandan-food.link",
       "repeatable": false
     },
-    "Description": {
+    "description": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
         "preset": "defaultHtml"
       }
     },
-    "Image": {
+    "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

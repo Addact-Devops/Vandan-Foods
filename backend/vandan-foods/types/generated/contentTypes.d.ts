@@ -441,7 +441,7 @@ export interface ApiAboutCompanyAboutCompany extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -469,7 +469,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -494,7 +494,7 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Component<'vandan-food.banner', false>;
+    banner: Schema.Attribute.Component<'vandan-food.banner', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -505,7 +505,7 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    ReferenceTitle: Schema.Attribute.String;
+    referenceTitle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -523,7 +523,7 @@ export interface ApiContactsUsContactsUs extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -575,7 +575,7 @@ export interface ApiInvestorInvestor extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -603,7 +603,7 @@ export interface ApiManagementManagement extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -631,7 +631,7 @@ export interface ApiManufacturingManufacturing extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -659,7 +659,7 @@ export interface ApiMarketingMarketing extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -688,11 +688,11 @@ export interface ApiOurBoardOfDirectorOurBoardOfDirector
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    HeadLine: Schema.Attribute.Component<'vandan-food.head-line', false>;
+    headLine: Schema.Attribute.Component<'vandan-food.head-line', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -718,11 +718,11 @@ export interface ApiOurBusinessStrategyOurBusinessStrategy
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    HeadLine: Schema.Attribute.Component<'vandan-food.head-line', true>;
+    headLine: Schema.Attribute.Component<'vandan-food.head-line', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -747,7 +747,7 @@ export interface ApiPageNotFoundPageNotFound extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -804,7 +804,7 @@ export interface ApiQualityCertificationQualityCertification
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -833,8 +833,8 @@ export interface ApiRealIngredientRealIngredient
     draftAndPublish: true;
   };
   attributes: {
-    Banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
-    Card: Schema.Attribute.Component<'vandan-food.card', true>;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    card: Schema.Attribute.Component<'vandan-food.card', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

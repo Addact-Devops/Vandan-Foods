@@ -11,12 +11,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Banner": {
+    "banner": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::banner.banner"
     },
-    "Card": {
+    "card": {
       "type": "component",
       "component": "vandan-food.card",
       "repeatable": true

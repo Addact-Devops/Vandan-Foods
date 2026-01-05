@@ -11,12 +11,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Banner": {
+    "banner": {
       "type": "component",
       "component": "vandan-food.banner",
       "repeatable": false
     },
-    "ReferenceTitle": {
+    "referenceTitle": {
       "type": "string"
     }
   }
