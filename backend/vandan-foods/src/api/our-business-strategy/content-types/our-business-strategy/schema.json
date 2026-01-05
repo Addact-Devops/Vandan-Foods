@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_business_strategies",
+  "info": {
+    "singularName": "our-business-strategy",
+    "pluralName": "our-business-strategies",
+    "displayName": "Our Business Strategy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    },
+    "HeadLine": {
+      "type": "component",
+      "component": "vandan-food.head-line",
+      "repeatable": true
+    }
+  }
+}

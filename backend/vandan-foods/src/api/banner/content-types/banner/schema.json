@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banners",
+  "info": {
+    "singularName": "banner",
+    "pluralName": "banners",
+    "displayName": "Banner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Banner": {
+      "type": "component",
+      "component": "vandan-food.banner",
+      "repeatable": false
+    },
+    "ReferenceTitle": {
+      "type": "string"
+    }
+  }
+}

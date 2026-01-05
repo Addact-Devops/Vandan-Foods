@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "manufacturings",
+  "info": {
+    "singularName": "manufacturing",
+    "pluralName": "manufacturings",
+    "displayName": "Manufacturing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    }
+  }
+}
