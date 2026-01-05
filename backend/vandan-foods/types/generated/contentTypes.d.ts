@@ -722,6 +722,7 @@ export interface ApiOurBusinessStrategyOurBusinessStrategy
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    HeadLine: Schema.Attribute.Component<'vandan-food.head-line', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
