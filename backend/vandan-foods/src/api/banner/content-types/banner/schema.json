@@ -15,6 +15,9 @@
       "type": "component",
       "component": "vandan-food.banner",
       "repeatable": false
+    },
+    "ReferenceTitle": {
+      "type": "string"
     }
   }
 }
