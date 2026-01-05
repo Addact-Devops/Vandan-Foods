@@ -12,7 +12,7 @@ import logo from '../../../public/logo.webp';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export const Header = () => {
   const res = {
@@ -125,12 +125,6 @@ export const Header = () => {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
   const { contacts, socials } = res.header.topbar;
 
-  // useEffect(() => {
-  //   const isMobile = window.innerWidth < 1024;
-
-  //   if (isMobile && isMobileMenuOpen) {
-  //   }
-  // }, [isMobileMenuOpen]);
   const pathname = usePathname();
   const menu = res.header.menus;
 
@@ -157,11 +151,9 @@ export const Header = () => {
 
       <div className="bg-white border-b">
         <div className=" mx-auto flex items-center  px-0  h-[121px]">
-          {/* Logo */}
           <div className="w-1/5 flex items-center justify-center gap-7">
             <Image src={logo} alt="" className="h-[121px] w-[121px] object-contain" />
           </div>
-          {/* Navigation */}
 
           <nav className="w-4/5 hidden lg:flex items-center justify-center font-manrope text-[14px] text-black py-[10px]">
             {menu.map((menus) => {
@@ -223,19 +215,15 @@ export const Header = () => {
             <FontAwesomeIcon icon={faBars} className="w-6 h-6 text-primary" />
           </button>
 
-          {/* Mobile Menu Drawer */}
           {isMobileMenuOpen && (
-            <div className="fixed inset-0 z-50 bg-black/30">
-              {/* Drawer panel */}
+            <div className="fixed inset-0 z-50 ">
               <div className="absolute right-0 top-0 h-full w-full bg-white shadow-xl box-border p-8 overflow-y-hidden overflow-x-hidden leading-[1.4em] flex flex-col">
-                {/* Header row */}
                 <div className="flex items-center justify-end absolute right-7 top-3">
                   <button onClick={() => setIsMobileMenuOpen(false)}>
                     <FontAwesomeIcon icon={faXmark} className="w-5 h-5 text-lg text-dark-gray" />
                   </button>
                 </div>
 
-                {/* Menu list */}
                 <div className="flex-1 overflow-y-hidden font-manrope">
                   {menu.map((m) => {
                     const hasSubMenu = Array.isArray(m.subMenus);
@@ -244,7 +232,6 @@ export const Header = () => {
 
                     return (
                       <div key={m.id} className="p">
-                        {/* Main item */}
                         <button
                           className={`
                   w-full flex items-center justify-between
@@ -269,7 +256,6 @@ export const Header = () => {
                           )}
                         </button>
 
-                        {/* Submenu accordion */}
                         {hasSubMenu && isOpen && (
                           <div className="bg-white">
                             {m?.subMenus?.map((sub) => (
