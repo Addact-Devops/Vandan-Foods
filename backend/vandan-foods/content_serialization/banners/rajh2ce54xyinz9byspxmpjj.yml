@@ -1,7 +1,7 @@
-id: 8
-documentId: lli1z66hmhuzyswgualjveyv
+id: 12
+documentId: rajh2ce54xyinz9byspxmpjj
 Banner:
-  id: 9
+  id: 13
   BannerTitle: OUR BOARD OF DIRECTOR
   BannerImage:
     id: 3
@@ -69,9 +69,9 @@ Banner:
     updatedAt: '2026-01-05T06:27:30.833Z'
     publishedAt: '2026-01-05T06:27:30.833Z'
     locale: null
-ReferenceTitle: Our Board of Director
-createdAt: '2026-01-05T06:28:33.441Z'
-updatedAt: '2026-01-05T06:28:33.441Z'
+ReferenceTitle: OUR BOARD OF DIRECTOR
+createdAt: '2026-01-05T07:17:19.410Z'
+updatedAt: '2026-01-05T07:17:19.410Z'
 publishedAt: null
 createdBy:
   id: 1
