@@ -5,10 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Image": {
+    "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -18,12 +18,12 @@
         "audios"
       ]
     },
-    "Link": {
+    "link": {
       "type": "component",
       "component": "vandan-food.link",
       "repeatable": false
     },
-    "Description": {
+    "description": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {

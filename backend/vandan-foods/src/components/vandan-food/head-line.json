@@ -5,10 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
