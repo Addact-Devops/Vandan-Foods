@@ -10,5 +10,11 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "bannerCarousels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::banner-carousel.banner-carousel"
+    }
+  }
 }
