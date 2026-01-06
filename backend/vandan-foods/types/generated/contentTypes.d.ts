@@ -483,6 +483,36 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBannerCarouselBannerCarousel
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'banner_carousels';
+  info: {
+    displayName: 'Banner Carousel';
+    pluralName: 'banner-carousels';
+    singularName: 'banner-carousel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    crousel: Schema.Attribute.Component<'vandan-food.promo', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::banner-carousel.banner-carousel'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    referenceTitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   collectionName: 'banners';
   info: {
@@ -551,6 +581,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    bannerCarousels: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::banner-carousel.banner-carousel'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1364,6 +1398,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-company.about-company': ApiAboutCompanyAboutCompany;
       'api::about.about': ApiAboutAbout;
+      'api::banner-carousel.banner-carousel': ApiBannerCarouselBannerCarousel;
       'api::banner.banner': ApiBannerBanner;
       'api::contacts-us.contacts-us': ApiContactsUsContactsUs;
       'api::home.home': ApiHomeHome;
