@@ -1,19 +1,19 @@
 {
   "kind": "collectionType",
-  "collectionName": "banners",
+  "collectionName": "banner_carousels",
   "info": {
-    "singularName": "banner",
-    "pluralName": "banners",
-    "displayName": "Banner"
+    "singularName": "banner-carousel",
+    "pluralName": "banner-carousels",
+    "displayName": "Banner Carousel"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "banner": {
+    "crousel": {
       "type": "component",
-      "component": "vandan-food.banner",
+      "component": "vandan-food.promo",
       "repeatable": false
     },
     "referenceTitle": {

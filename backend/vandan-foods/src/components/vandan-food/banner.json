@@ -5,10 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "BannerTitle": {
+    "bannerTitle": {
       "type": "string"
     },
-    "BannerImage": {
+    "bannerImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

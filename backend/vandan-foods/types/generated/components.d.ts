@@ -6,10 +6,28 @@ export interface VandanFoodBanner extends Struct.ComponentSchema {
     displayName: 'Banner';
   };
   attributes: {
-    BannerImage: Schema.Attribute.Media<
+    bannerImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
-    BannerTitle: Schema.Attribute.String;
+    bannerTitle: Schema.Attribute.String;
+  };
+}
+
+export interface VandanFoodBaseHeading extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_base_headings';
+  info: {
+    displayName: 'baseHeading';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -19,15 +37,15 @@ export interface VandanFoodCard extends Struct.ComponentSchema {
     displayName: 'Card';
   };
   attributes: {
-    Description: Schema.Attribute.RichText &
+    description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'defaultHtml';
         }
       >;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -37,17 +55,17 @@ export interface VandanFoodContentBlock extends Struct.ComponentSchema {
     displayName: 'ContentBlock';
   };
   attributes: {
-    Description: Schema.Attribute.RichText &
+    description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'defaultHtml';
         }
       >;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Link: Schema.Attribute.Component<'vandan-food.link', false>;
-    SubTitle: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'vandan-food.link', false>;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -57,7 +75,7 @@ export interface VandanFoodDescription extends Struct.ComponentSchema {
     displayName: 'Description';
   };
   attributes: {
-    Description: Schema.Attribute.RichText &
+    description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
@@ -73,14 +91,14 @@ export interface VandanFoodHeadLine extends Struct.ComponentSchema {
     displayName: 'HeadLine';
   };
   attributes: {
-    Description: Schema.Attribute.RichText &
+    description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'defaultHtml';
         }
       >;
-    Title: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -90,10 +108,10 @@ export interface VandanFoodHero extends Struct.ComponentSchema {
     displayName: 'Hero';
   };
   attributes: {
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Link: Schema.Attribute.Component<'vandan-food.link', false>;
-    SubTitle: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'vandan-food.link', false>;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -103,7 +121,7 @@ export interface VandanFoodImage extends Struct.ComponentSchema {
     displayName: 'Image';
   };
   attributes: {
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -127,16 +145,16 @@ export interface VandanFoodPromo extends Struct.ComponentSchema {
     displayName: 'Promo';
   };
   attributes: {
-    Description: Schema.Attribute.RichText &
+    description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'defaultHtml';
         }
       >;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Link: Schema.Attribute.Component<'vandan-food.link', false>;
-    Title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'vandan-food.link', false>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -146,7 +164,7 @@ export interface VandanFoodTitle extends Struct.ComponentSchema {
     displayName: 'Title';
   };
   attributes: {
-    Title: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -154,6 +172,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'vandan-food.banner': VandanFoodBanner;
+      'vandan-food.base-heading': VandanFoodBaseHeading;
       'vandan-food.card': VandanFoodCard;
       'vandan-food.content-block': VandanFoodContentBlock;
       'vandan-food.description': VandanFoodDescription;

@@ -11,10 +11,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Banner": {
+    "banner": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::banner.banner"
+    },
+    "baseHeading": {
+      "type": "component",
+      "component": "vandan-food.base-heading",
+      "repeatable": false
     }
   }
 }

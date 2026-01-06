@@ -1,11 +1,14 @@
 {
-  "collectionName": "components_vandan_food_head_lines",
+  "collectionName": "components_vandan_food_base_headings",
   "info": {
-    "displayName": "HeadLine"
+    "displayName": "baseHeading"
   },
   "options": {},
   "attributes": {
     "title": {
+      "type": "string"
+    },
+    "subTitle": {
       "type": "string"
     },
     "description": {

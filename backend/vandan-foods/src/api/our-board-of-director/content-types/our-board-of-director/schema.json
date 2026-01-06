@@ -11,12 +11,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HeadLine": {
+    "headLine": {
       "type": "component",
       "component": "vandan-food.head-line",
       "repeatable": false
     },
-    "Banner": {
+    "banner": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::banner.banner"
