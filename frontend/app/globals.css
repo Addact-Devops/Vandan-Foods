@@ -28,10 +28,12 @@
   --font-handlee: var(--font-handlee);
   --font-manrope: var(--font-manrope);
   --font-marcellus: var(--font-marcellus);
+  --font-jost: var(--font-jost);
 
   --font-family-handlee: var(--font-handlee);
   --font-family-manrope: var(--font-manrope);
   --font-family-marcellus: var(--font-marcellus);
+  --font-family-jost: var(--font-jost);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,3 +48,15 @@ body {
   color: var(--foreground);
   font-family: var(--font-manrope), sans-serif;
 }
+/* .child-container {
+  max-width: 1260px !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (max-width: 768px) {
+  .child-container {
+    max-width: 100%;
+  }
+} */

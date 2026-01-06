@@ -6,13 +6,14 @@ import {
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faEnvelope, faPhone, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from 'next/image';
-import logo from '../../../public/logo.webp';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import logo from '../../public/logo.webp';
+import ImageBase from '../atoms/ImageBase';
+import Container from '../layout/Container';
 
 export const Header = () => {
   const res = {
@@ -149,10 +150,10 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="bg-white border-b">
-        <div className=" mx-auto flex items-center  px-0  h-[121px]">
-          <div className="w-1/5 flex items-center justify-center gap-7">
-            <Image src={logo} alt="" className="h-[121px] w-[121px] object-contain" />
+      <Container className="bg-white border-b">
+        <div className=" mx-auto flex items-center justify-between px-0  h-[121px]">
+          <div className="w-[121px] flex items-center justify-center gap-7">
+            <ImageBase src={logo} alt="" className="h-[121px] w-[121px] object-contain" />
           </div>
 
           <nav className="w-4/5 hidden lg:flex items-center justify-center font-manrope text-[14px] text-black py-[10px]">
@@ -278,7 +279,7 @@ export const Header = () => {
             </div>
           )}
         </div>
-      </div>
+      </Container>
     </header>
   );
 };
