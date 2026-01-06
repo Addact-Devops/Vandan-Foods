@@ -748,6 +748,7 @@ export interface ApiPageNotFoundPageNotFound extends Struct.SingleTypeSchema {
   };
   attributes: {
     banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    baseHeading: Schema.Attribute.Component<'vandan-food.base-heading', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
