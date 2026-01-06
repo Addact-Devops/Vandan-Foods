@@ -13,6 +13,24 @@ export interface VandanFoodBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface VandanFoodBaseHeading extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_base_headings';
+  info: {
+    displayName: 'baseHeading';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface VandanFoodCard extends Struct.ComponentSchema {
   collectionName: 'components_vandan_food_cards';
   info: {
@@ -154,6 +172,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'vandan-food.banner': VandanFoodBanner;
+      'vandan-food.base-heading': VandanFoodBaseHeading;
       'vandan-food.card': VandanFoodCard;
       'vandan-food.content-block': VandanFoodContentBlock;
       'vandan-food.description': VandanFoodDescription;
