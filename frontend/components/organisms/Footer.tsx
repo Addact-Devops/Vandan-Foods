@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import { FooterLinks } from '../molecules/FooterLinks';
-import logo from '../../../public/logo.webp';
-import bg from '../../../public/background.webp';
+import logo from '../../public/logo.webp';
+import bg from '../../public/background.webp';
 import {
   faEnvelope,
   faLocationDot,
@@ -11,6 +10,8 @@ import {
   faWarehouse,
 } from '@fortawesome/free-solid-svg-icons';
 import { FooterContact } from '../molecules/FooterContact';
+import ImageBase from '../atoms/ImageBase';
+import Container from '../layout/Container';
 
 export const Footer = () => {
   const footerConfig = {
@@ -102,10 +103,11 @@ export const Footer = () => {
             'linear-gradient(180deg, rgba(4,35,14,0.95) 0%, rgba(12,68,28,0.85) 40%, rgba(22,92,40,0.75) 70%, rgba(30,105,46,0.7) 100%)',
         }}
       />
-      <div className="relative container mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <Container className=" py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <div>
           <div className="flex justify-start mb-4">
-            <Image src={logo} alt="" className="h-30.25 w-30.25 object-contain" />
+            <ImageBase src={logo} alt="" className="h-30.25 w-30.25 object-contain" />
           </div>
           <p className=" text-[15px] leading-6 max-w-[260px] font-manrope font-medium">
             Our company is an ISO 9001:2015 standards certified company.We focus on delivering
@@ -113,13 +115,11 @@ export const Footer = () => {
             requirements.
           </p>
         </div>
-
         {footerConfig.linkGroups.map((i) => (
           <FooterLinks items={i.items} key={i.id} title={i.title} />
         ))}
-
         <FooterContact title={contact.title} items={contact.items} />
-      </div>
+      </Container>
 
       <div className="relative w-full bg-[#1f4f3b] text-center py-4">
         <p className="text-[14px] font-manrope font-medium">
