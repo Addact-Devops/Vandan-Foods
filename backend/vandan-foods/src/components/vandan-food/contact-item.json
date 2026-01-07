@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_vandan_food_contact_items",
+    "info": {
+        "displayName": "Contact Item",
+        "icon": "phone",
+        "description": "Item for contact details with icon"
+    },
+    "options": {},
+    "attributes": {
+        "content": {
+            "type": "text"
+        },
+        "icon": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "link": {
+            "type": "string"
+        }
+    }
+}
