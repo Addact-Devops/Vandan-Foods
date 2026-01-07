@@ -1,7 +1,14 @@
 import type { NextConfig } from 'next';
+const publicUrl = process.env.PUBLIC_URL || '';
 
 const nextConfig: NextConfig = {
+  assetPrefix: publicUrl,
+  output: 'export',
+  env: {
+    PUBLIC_URL: publicUrl,
+  },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'http',
