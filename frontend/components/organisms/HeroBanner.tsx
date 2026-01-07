@@ -3,8 +3,6 @@ import BreadCrumb from '../atoms/BreadCrumb';
 import ImageBase from '../atoms/ImageBase';
 
 const HeroBanner = ({ heroBannerData }: HeroBannerProps) => {
-  console.log('HeroBanner props:', heroBannerData);
-
   const imageUrl = heroBannerData?.bannerImage?.url;
   return (
     <section className="relative w-full h-[360px] md:h-[420px] overflow-hidden mb-6">
@@ -20,7 +18,7 @@ const HeroBanner = ({ heroBannerData }: HeroBannerProps) => {
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
         <BreadCrumb crumbs={[{ label: 'Home', href: '/' }]} className="text-white" />
         <h1
-          className="text-white md:text-5xl  tracking-wide text-center text-[65px]! font-normal uppercase leading-tight"
+          className="text-white md:text-5xl  tracking-wide text-center text-3xl md:text-[65px]! font-normal uppercase leading-tight"
           style={{ fontFamily: 'EB Garamond, serif' }}
         >
           {heroBannerData.bannerTitle}

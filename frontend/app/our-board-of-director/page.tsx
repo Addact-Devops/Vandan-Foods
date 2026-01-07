@@ -8,7 +8,6 @@ const OurBoardOfDirector = async () => {
 
   const heroBannerData = ourBoardOfDirectoryData?.ourBoardOfDirector?.banner?.banner;
 
-  console.log(ourBoardOfDirectoryData?.ourBoardOfDirector?.headLine);
   return (
     <div>
       <HeroBanner heroBannerData={heroBannerData} />
