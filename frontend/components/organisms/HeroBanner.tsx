@@ -5,7 +5,7 @@ import ImageBase from '../atoms/ImageBase';
 const HeroBanner = ({ heroBannerData }: HeroBannerProps) => {
   const imageUrl = heroBannerData?.bannerImage?.url;
   return (
-    <section className="relative w-full h-[360px] md:h-[420px] overflow-hidden mb-6">
+    <section className="relative w-full h-56 lg:h-90 md:h-105 overflow-hidden mb-6">
       <ImageBase
         src={imageUrl}
         alt={heroBannerData?.bannerImage?.alternativeText || ''}

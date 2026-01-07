@@ -38,7 +38,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
@@ -48,15 +48,3 @@ body {
   color: var(--foreground);
   font-family: var(--font-manrope), sans-serif;
 }
-/* .child-container {
-  max-width: 1260px !important;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media (max-width: 768px) {
-  .child-container {
-    max-width: 100%;
-  }
-} */
