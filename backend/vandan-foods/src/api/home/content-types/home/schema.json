@@ -33,6 +33,16 @@
       "type": "component",
       "component": "vandan-food.content-block",
       "repeatable": false
+    },
+    "achivements": {
+      "type": "component",
+      "component": "vandan-food.head-line",
+      "repeatable": false
+    },
+    "achivementsCards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::card.card"
     }
   }
 }

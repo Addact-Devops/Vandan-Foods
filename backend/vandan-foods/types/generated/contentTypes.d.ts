@@ -678,6 +678,8 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    achivements: Schema.Attribute.Component<'vandan-food.head-line', false>;
+    achivementsCards: Schema.Attribute.Relation<'oneToMany', 'api::card.card'>;
     bannerCarousels: Schema.Attribute.Relation<
       'oneToMany',
       'api::banner-carousel.banner-carousel'
