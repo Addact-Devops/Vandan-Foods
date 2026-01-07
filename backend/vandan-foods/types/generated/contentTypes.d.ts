@@ -570,6 +570,37 @@ export interface ApiContactsUsContactsUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
+  collectionName: 'headers';
+  info: {
+    description: 'Global website header';
+    displayName: 'Header';
+    pluralName: 'headers';
+    singularName: 'header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::header.header'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mainMenu: Schema.Attribute.Component<'vandan-food.menu-item', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    topBar: Schema.Attribute.Component<'vandan-food.top-bar', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -1402,6 +1433,7 @@ declare module '@strapi/strapi' {
       'api::banner-carousel.banner-carousel': ApiBannerCarouselBannerCarousel;
       'api::banner.banner': ApiBannerBanner;
       'api::contacts-us.contacts-us': ApiContactsUsContactsUs;
+      'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::investor.investor': ApiInvestorInvestor;
       'api::management.management': ApiManagementManagement;
