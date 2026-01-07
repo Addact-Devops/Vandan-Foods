@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #01923f;
+  --secondary: #f7c35f;
+  --dark-gray: #232323;
+  --accent: #f7c461;
+  --medium-gray: #777777;
+  --dark-green: #215341;
+  --light-green: #99cc00;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-dark-gray: var(--dark-gray);
+  --color-accent: var(--accent);
+  --color-medium-gray: var(--medium-gray);
+  --color-dark-green: var(--dark-green);
+  --color-light-green: var(--light-green);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-handlee: var(--font-handlee);
+  --font-manrope: var(--font-manrope);
+  --font-marcellus: var(--font-marcellus);
+  --font-jost: var(--font-jost);
+
+  --font-family-handlee: var(--font-handlee);
+  --font-family-manrope: var(--font-manrope);
+  --font-family-marcellus: var(--font-marcellus);
+  --font-family-jost: var(--font-jost);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+}

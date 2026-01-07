@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_vandan_food_menu_items",
+  "info": {
+    "displayName": "MenuItem",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "isInternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subMenu": {
+      "type": "component",
+      "component": "vandan-food.link",
+      "repeatable": true
+    }
+  }
+}

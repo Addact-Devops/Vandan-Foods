@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bannerCarousels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::banner-carousel.banner-carousel"
+    },
+    "exceptionalWithTitle": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::card.card"
+    },
+    "ourStrengthsCard": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::card.card"
+    },
+    "cta": {
+      "type": "component",
+      "component": "vandan-food.content-block",
+      "repeatable": false
+    }
+  }
+}
