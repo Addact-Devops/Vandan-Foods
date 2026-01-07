@@ -28,6 +28,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::card.card"
+    },
+    "cta": {
+      "type": "component",
+      "component": "vandan-food.content-block",
+      "repeatable": false
     }
   }
 }

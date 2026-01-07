@@ -189,7 +189,7 @@ export interface VandanFoodMenuItem extends Struct.ComponentSchema {
     href: Schema.Attribute.String;
     icon: Schema.Attribute.Media<'images'>;
     isInternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    submenu: Schema.Attribute.Component<'vandan-food.link', true>;
+    subMenu: Schema.Attribute.Component<'vandan-food.link', true>;
     text: Schema.Attribute.String;
   };
 }
