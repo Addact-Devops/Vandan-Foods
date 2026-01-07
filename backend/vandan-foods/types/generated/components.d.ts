@@ -49,6 +49,33 @@ export interface VandanFoodCard extends Struct.ComponentSchema {
   };
 }
 
+export interface VandanFoodContactItem extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_contact_items';
+  info: {
+    description: 'Item for contact details with icon';
+    displayName: 'Contact Item';
+    icon: 'phone';
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+  };
+}
+
+export interface VandanFoodContactSection extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_contact_sections';
+  info: {
+    description: 'Section for contact information';
+    displayName: 'Contact Section';
+    icon: 'address-book';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'vandan-food.contact-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface VandanFoodContentBlock extends Struct.ComponentSchema {
   collectionName: 'components_vandan_food_content_blocks';
   info: {
@@ -82,6 +109,18 @@ export interface VandanFoodDescription extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+  };
+}
+
+export interface VandanFoodFooterSection extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_footer_sections';
+  info: {
+    displayName: 'Footer Section';
+    icon: 'layer-group';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'vandan-food.link', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -133,8 +172,24 @@ export interface VandanFoodLink extends Struct.ComponentSchema {
   };
   attributes: {
     href: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images'>;
     isInternal: Schema.Attribute.Boolean;
     target: Schema.Attribute.Enumeration<['_self', '_blank']>;
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface VandanFoodMenuItem extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_menu_items';
+  info: {
+    displayName: 'MenuItem';
+    icon: 'bulletList';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images'>;
+    isInternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    submenu: Schema.Attribute.Component<'vandan-food.link', true>;
     text: Schema.Attribute.String;
   };
 }
@@ -158,6 +213,20 @@ export interface VandanFoodPromo extends Struct.ComponentSchema {
   };
 }
 
+export interface VandanFoodSocialIcon extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_social_icons';
+  info: {
+    displayName: 'SocialIcon';
+    icon: 'twitter';
+  };
+  attributes: {
+    hoverIcon: Schema.Attribute.Media<'images'>;
+    icon: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface VandanFoodTitle extends Struct.ComponentSchema {
   collectionName: 'components_vandan_food_titles';
   info: {
@@ -168,20 +237,41 @@ export interface VandanFoodTitle extends Struct.ComponentSchema {
   };
 }
 
+export interface VandanFoodTopBar extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_top_bars';
+  info: {
+    displayName: 'TopBar';
+    icon: 'layout';
+  };
+  attributes: {
+    email: Schema.Attribute.Email;
+    emailIcon: Schema.Attribute.Media<'images'>;
+    phoneIcon: Schema.Attribute.Media<'images'>;
+    phoneNumber: Schema.Attribute.String;
+    socialLinks: Schema.Attribute.Component<'vandan-food.social-icon', true>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'vandan-food.banner': VandanFoodBanner;
       'vandan-food.base-heading': VandanFoodBaseHeading;
       'vandan-food.card': VandanFoodCard;
+      'vandan-food.contact-item': VandanFoodContactItem;
+      'vandan-food.contact-section': VandanFoodContactSection;
       'vandan-food.content-block': VandanFoodContentBlock;
       'vandan-food.description': VandanFoodDescription;
+      'vandan-food.footer-section': VandanFoodFooterSection;
       'vandan-food.head-line': VandanFoodHeadLine;
       'vandan-food.hero': VandanFoodHero;
       'vandan-food.image': VandanFoodImage;
       'vandan-food.link': VandanFoodLink;
+      'vandan-food.menu-item': VandanFoodMenuItem;
       'vandan-food.promo': VandanFoodPromo;
+      'vandan-food.social-icon': VandanFoodSocialIcon;
       'vandan-food.title': VandanFoodTitle;
+      'vandan-food.top-bar': VandanFoodTopBar;
     }
   }
 }
