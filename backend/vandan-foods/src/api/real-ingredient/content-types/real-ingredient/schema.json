@@ -16,10 +16,10 @@
       "relation": "oneToOne",
       "target": "api::banner.banner"
     },
-    "card": {
-      "type": "component",
-      "component": "vandan-food.card",
-      "repeatable": true
+    "cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::card.card"
     }
   }
 }
