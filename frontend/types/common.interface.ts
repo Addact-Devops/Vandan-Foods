@@ -13,11 +13,15 @@ export interface HeroBannerProps {
 }
 
 export interface ContentRenderProps {
-  h1?: string;
-  h2?: string;
-  richText?: string;
+  typeOfHeading?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  headlineArrData?: HeadlineData[];
 }
 
+export interface HeadlineData {
+  id?: string;
+  title?: string;
+  description?: string;
+}
 export interface Crumb {
   label: string;
   href?: string;

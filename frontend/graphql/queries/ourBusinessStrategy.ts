@@ -1,11 +1,12 @@
-import { OurBoardOfDirectorResponse } from '@/types/pages/ourBoardOfDirector.interface';
 import { gql } from 'graphql-request';
+
+import { OurBusinessStrategyResponse } from '@/types/pages/ourBusinessStrategy.interface';
 import { fetchGraphQL } from '../fetcher';
 
-export const ourBoardOfDirectorQuery = async (): Promise<OurBoardOfDirectorResponse> => {
+export const ourBusinessStrategyQuery = async (): Promise<OurBusinessStrategyResponse> => {
   const query = gql`
-    query OurBoardOfDirector {
-      ourBoardOfDirector {
+    query OurBusinessStrategy {
+      ourBusinessStrategy {
         banner {
           banner {
             bannerTitle
@@ -25,10 +26,11 @@ export const ourBoardOfDirectorQuery = async (): Promise<OurBoardOfDirectorRespo
       }
     }
   `;
-  const data = await fetchGraphQL<OurBoardOfDirectorResponse>(
+
+  const data = await fetchGraphQL<OurBusinessStrategyResponse>(
     query,
     undefined,
-    'OurBoardOfDirector',
+    'OurBusinessStrategy',
   );
   return data;
 };

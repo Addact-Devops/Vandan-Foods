@@ -150,13 +150,13 @@ export const Header = () => {
         </div>
       </div>
 
-      <Container className="bg-white border-b">
-        <div className=" mx-auto flex items-center justify-between px-0  h-[121px]">
-          <div className="w-[121px] flex items-center justify-center gap-7">
+      <Container className="bg-white">
+        <div className=" mx-auto flex items-center justify-between px-0  lg:h-30.5 h-17.5">
+          <div className="lg:w-30.5 w-16 flex items-center justify-center gap-7 lg:pl-0 pl-4">
             <ImageBase src={logo} alt="" className="h-[121px] w-[121px] object-contain" />
           </div>
 
-          <nav className="w-4/5 hidden lg:flex items-center justify-center font-manrope text-[14px] text-black py-[10px]">
+          <nav className="w-4/5 hidden lg:flex items-center flex-wrap justify-start gap-y-5 2xl:gap-y-0 2xl:justify-center font-manrope text-[14px] text-black py-[10px]">
             {menu.map((menus) => {
               const isActive = pathname === menus.url || pathname.startsWith(menus.url + '/');
               const hasSubMenu = Array.isArray(menus.subMenus);

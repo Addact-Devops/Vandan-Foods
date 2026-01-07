@@ -87,8 +87,8 @@ export const Footer = () => {
       ],
     },
   };
-
   const { contact } = footerConfig;
+
   return (
     <footer
       className="relative text-white bg-top  bg-cover"
@@ -104,7 +104,7 @@ export const Footer = () => {
         }}
       />
 
-      <Container className=" py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <Container className=" py-16 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <div>
           <div className="flex justify-start mb-4">
             <ImageBase src={logo} alt="" className="h-30.25 w-30.25 object-contain" />
