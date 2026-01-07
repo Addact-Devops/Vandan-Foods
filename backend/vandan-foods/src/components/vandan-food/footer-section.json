@@ -1,0 +1,18 @@
+{
+    "collectionName": "components_vandan_food_footer_sections",
+    "info": {
+        "displayName": "Footer Section",
+        "icon": "layer-group"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "links": {
+            "type": "component",
+            "repeatable": true,
+            "component": "vandan-food.link"
+        }
+    }
+}

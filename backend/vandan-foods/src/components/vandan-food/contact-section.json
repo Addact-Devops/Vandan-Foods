@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_vandan_food_contact_sections",
+    "info": {
+        "displayName": "Contact Section",
+        "icon": "address-book",
+        "description": "Section for contact information"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "items": {
+            "type": "component",
+            "repeatable": true,
+            "component": "vandan-food.contact-item"
+        }
+    }
+}
