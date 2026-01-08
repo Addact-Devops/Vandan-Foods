@@ -456,6 +456,7 @@ export interface ApiAboutCompanyAboutCompany extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    whatWeDo: Schema.Attribute.Component<'vandan-food.content-block', false>;
   };
 }
 

@@ -20,6 +20,11 @@
       "type": "component",
       "component": "vandan-food.tab",
       "repeatable": true
+    },
+    "whatWeDo": {
+      "type": "component",
+      "component": "vandan-food.content-block",
+      "repeatable": false
     }
   }
 }
