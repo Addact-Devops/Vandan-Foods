@@ -12,6 +12,8 @@ const HeroBanner = ({ heroBannerData, crumbs }: HeroBannerProps) => {
         fill
         priority
         className="object-cover"
+        height={56}
+        width={100}
       />
 
       <div className="absolute inset-0 bg-black/40" />

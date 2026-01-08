@@ -1,172 +1,100 @@
 'use client';
-import {
-  faFacebookF,
-  faInstagram,
-  faLinkedinIn,
-  faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
+
 import { faBars, faEnvelope, faPhone, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import logo from '../../public/logo.webp';
+import Logo from '../../public/logo.webp';
 import ImageBase from '../atoms/ImageBase';
 import Container from '../layout/Container';
+import { HeaderData } from '@/types/header.interface';
+import { getSocialFallbackIcon } from '@/util/iconFallBack';
 
-export const Header = () => {
-  const res = {
-    header: {
-      topbar: {
-        contacts: [
-          {
-            id: 'phone',
-            type: 'phone',
-            label: '+91 8980121363',
-            value: 'tel:+91 8980121363',
-            icon: faPhone,
-          },
-          {
-            id: 'email',
-            type: 'email',
-            label: 'Vandanfoodsltd@gmail.com',
-            value: 'mailto:Vandanfoodsltd@gmail.com',
-            icon: faEnvelope,
-          },
-        ],
-        socials: [
-          { id: 'facebook', url: '#', icon: faFacebookF },
-          { id: 'instagram', url: '#', icon: faInstagram },
-          { id: 'linkedin', url: '#', icon: faLinkedinIn },
-          { id: 'youtube', url: '#', icon: faYoutube },
-        ],
-      },
-      menus: [
-        {
-          id: 'home',
-          label: 'HOME',
-          url: '/',
-        },
-        {
-          id: 'about',
-          label: 'ABOUT US',
-          url: '/about',
-          subMenus: [
-            {
-              id: 'about-company',
-              label: 'ABOUT COMPANY',
-              url: '/about/about-company',
-            },
-            {
-              id: 'management',
-              label: 'MANAGEMENT',
-              url: '/about/management',
-            },
-            {
-              id: 'ingredients',
-              label: 'INGREDIENTS',
-              url: '/about/real-ingredients',
-            },
-            {
-              id: 'marketing',
-              label: 'MARKETING',
-              url: '/about/marketing',
-            },
-            {
-              id: 'quality-certification',
-              label: 'QUALITY-CERTIFICATION',
-              url: '/about/quality-certification',
-            },
-          ],
-        },
-        {
-          id: 'manufacturing',
-          label: 'MANUFACTURING',
-          url: '/manufacturing',
-          subMenus: [
-            {
-              id: 'castor-oil',
-              label: 'CASTOR DE OILED CAKE',
-              url: '/manufacturing/castor-oil',
-            },
-            {
-              id: 'refined-oil',
-              label: 'REFINED CASTOR OIL FIRST STAGE GRADE',
-              url: '/manufacturing/refined-oil',
-            },
-          ],
-        },
+type HeaderProps = {
+  data: HeaderData;
+};
 
-        {
-          id: 'investors',
-          label: 'INVESTORS',
-          url: '/investors',
-        },
-        {
-          id: 'our-business-strategy',
-          label: 'OUR BUSINESS STRATEGY',
-          url: '/our-business-strategy',
-        },
-        {
-          id: 'our-board-of-director',
-          label: 'OUR BOARD OF DIRECTOR',
-          url: '/our-board-of-director',
-        },
-        {
-          id: 'contact-us',
-          label: 'CONTACT US',
-          url: '/contact-us',
-        },
-      ],
-    },
-  };
-
+export const Header = ({ data }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
-  const { contacts, socials } = res.header.topbar;
 
   const pathname = usePathname();
-  const menu = res.header.menus;
+  const { logo, topBar, mainMenu } = data;
 
   return (
     <header className="w-full">
       <div className=" w-full hidden md:flex text-white text-sm font-manrope">
         <div className="w-full lg:w-4/5 bg-primary flex justify-between lg:justify-normal items-center gap-6  h-14 p-10 lg:pl-10 lg:pr-0 py-5 text-base font-semibold">
-          {contacts.map((item) => (
-            <span key={item.id} className="flex items-center gap-4">
-              <FontAwesomeIcon icon={item.icon} className="h-4 w-4" />
-              <a href={item.value}> {item.label}</a>
-            </span>
-          ))}
+          <span className="flex items-center gap-4">
+            {topBar?.phoneIcon?.url ? (
+              <ImageBase src={topBar.phoneIcon.url} alt="Phone" width={16} height={16} />
+            ) : (
+              <FontAwesomeIcon icon={faPhone} className="w-4 h-4" />
+            )}
+
+            {topBar?.phoneNumber && <a href={`tel:${topBar.phoneNumber}`}>{topBar.phoneNumber}</a>}
+          </span>
+
+          <span className="flex items-center gap-4">
+            {topBar?.emailIcon?.url ? (
+              <ImageBase src={topBar.emailIcon.url} alt="Email" width={16} height={16} />
+            ) : (
+              <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+            )}
+
+            {topBar?.email && <a href={`mailto:${topBar.email}`}>{topBar.email}</a>}
+          </span>
         </div>
 
         <div className="w-1/5 bg-secondary hidden lg:flex items-center justify-center gap-4 h-14 py-5 text-[15px] font-semibold text-white">
-          {socials.map((item) => (
-            <a key={item.id} href={item.url} className="hover:text-primary">
-              <FontAwesomeIcon icon={item.icon} className="w-5 h-5" />
-            </a>
-          ))}
+          {topBar.socialLinks.map((item) => {
+            const hasBackendIcon = !!item.icon?.url;
+
+            return (
+              <a
+                key={item.label}
+                href={item.url || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary"
+              >
+                {hasBackendIcon ? (
+                  <ImageBase src={item.icon.url} alt={item.label} width={20} height={20} />
+                ) : (
+                  <FontAwesomeIcon icon={getSocialFallbackIcon(item.label)} className="w-5 h-5" />
+                )}
+              </a>
+            );
+          })}
         </div>
       </div>
 
       <Container className="bg-white">
         <div className=" mx-auto flex items-center justify-between px-0  lg:h-30.5 h-17.5">
           <div className="lg:w-30.5 w-16 flex items-center justify-center gap-7 lg:pl-0 pl-4">
-            <ImageBase src={logo} alt="" className="h-[121px] w-[121px] object-contain" />
+            <ImageBase
+              src={logo.url || Logo}
+              alt={logo.alternativeText || 'Logo'}
+              className="h-[121px] w-[121px] object-contain"
+              height={30.25}
+              width={30.25}
+            />
           </div>
 
           <nav className="w-4/5 hidden lg:flex items-center flex-wrap justify-start gap-y-5 2xl:gap-y-0 2xl:justify-center font-manrope text-[14px] text-black py-[10px]">
-            {menu.map((menus) => {
-              const isActive = pathname === menus.url || pathname.startsWith(menus.url + '/');
-              const hasSubMenu = Array.isArray(menus.subMenus);
+            {mainMenu.map((menus) => {
+              const isActive = pathname === menus.href || pathname.startsWith(menus.href + '/');
+              const hasSubMenu = menus.subMenu && menus.subMenu.length > 0;
+
               return (
                 <div key={menus.id} className="relative group flex items-center">
                   <Link
-                    className={`px-4 flex items-center gap-2 group font-extrabold ${isActive ? 'text-primary' : 'text-[#232323] hover:text-primary'}`}
-                    href={menus.url}
+                    className={`px-4 flex items-center gap-2 group font-extrabold ${isActive ? 'text-primary' : 'text-dark-gray hover:text-primary'}`}
+                    href={menus.href || '#'}
                   >
-                    {menus.label}
+                    {menus.text}
 
                     {hasSubMenu && (
                       <FontAwesomeIcon
@@ -181,11 +109,11 @@ export const Header = () => {
 
                   {hasSubMenu && (
                     <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-md rounded-sm min-w-[220px] z-20">
-                      {menus?.subMenus?.map((sub) => {
-                        const subActive = pathname === sub.url;
+                      {menus?.subMenu?.map((sub) => {
+                        const subActive = pathname === sub.href;
                         return (
                           <Link
-                            href={sub.url}
+                            href={sub.href}
                             key={sub.id}
                             className={`
                      block px-4
@@ -196,10 +124,10 @@ export const Header = () => {
         border-b                
         text-[14px]
         font-extrabold
-                    ${subActive ? 'text-primary' : 'text-[#232323] hover:text-primary'}
+                    ${subActive ? 'text-primary' : 'text-dark-gray hover:text-primary'}
                   `}
                           >
-                            {sub.label}
+                            {sub.text}
                           </Link>
                         );
                       })}
@@ -226,10 +154,10 @@ export const Header = () => {
                 </div>
 
                 <div className="flex-1 overflow-y-hidden font-manrope">
-                  {menu.map((m) => {
-                    const hasSubMenu = Array.isArray(m.subMenus);
+                  {mainMenu.map((m) => {
+                    const hasSubMenu = Array.isArray(m.subMenu);
                     const isOpen = openSubMenu === m.id;
-                    const isActive = pathname === m.url || pathname.startsWith(m.url + '/');
+                    const isActive = pathname === m.href || pathname.startsWith(m.href + '/');
 
                     return (
                       <div key={m.id} className="p">
@@ -237,7 +165,7 @@ export const Header = () => {
                           className={`
                   w-full flex items-center justify-between
                   px-5 py-3 text-[14px] font-extrabold
-                  ${isActive ? 'text-primary' : 'text-[#232323]'}
+                  ${isActive ? 'text-primary' : 'text-dark-gray'}
                 `}
                           onClick={() =>
                             hasSubMenu
@@ -245,7 +173,7 @@ export const Header = () => {
                               : setIsMobileMenuOpen(false)
                           }
                         >
-                          <Link href={m.url}>{m.label}</Link>
+                          <Link href={m.href}>{m.text}</Link>
 
                           {hasSubMenu && (
                             <FontAwesomeIcon
@@ -259,14 +187,14 @@ export const Header = () => {
 
                         {hasSubMenu && isOpen && (
                           <div className="bg-white">
-                            {m?.subMenus?.map((sub) => (
+                            {m?.subMenu?.map((sub) => (
                               <Link
                                 key={sub.id}
-                                href={sub.url}
+                                href={sub.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="block px-8 py-3 text-[14px] font-medium border-b hover:text-primary"
                               >
-                                {sub.label}
+                                {sub.text}
                               </Link>
                             ))}
                           </div>

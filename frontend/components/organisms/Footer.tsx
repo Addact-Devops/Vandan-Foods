@@ -1,94 +1,19 @@
 import { FooterLinks } from '../molecules/FooterLinks';
-import logo from '../../public/logo.webp';
 import bg from '../../public/background.webp';
-import {
-  faEnvelope,
-  faLocationDot,
-  faMobileScreenButton,
-  faPhone,
-  faUser,
-  faWarehouse,
-} from '@fortawesome/free-solid-svg-icons';
 import { FooterContact } from '../molecules/FooterContact';
 import ImageBase from '../atoms/ImageBase';
 import Container from '../layout/Container';
+import { FooterData } from '@/types/footer.interface';
+import { getContactFallbackIcon } from '@/util/iconFallBack';
+import RichText from '../atoms/RichText';
+type FooterProps = {
+  data: FooterData;
+};
 
-export const Footer = () => {
-  const footerConfig = {
-    linkGroups: [
-      {
-        id: 'links',
-        title: 'Links',
-        items: [
-          { id: 'home', label: 'Home', url: '/' },
-          { id: 'about', label: 'About Us', url: '/about' },
-          { id: 'investors', label: 'Investors', url: '/investors' },
-          { id: 'strategy', label: 'Our Business Strategy', url: '/our-business-strategy' },
-          { id: 'board', label: 'Our Board of Director', url: '/our-board-of-director' },
-          { id: 'contact', label: 'Contact Us', url: '/contact-us' },
-        ],
-      },
-      {
-        id: 'products',
-        title: 'Products',
-        items: [
-          { id: 'cake', label: 'Castor De Oiled Cake', url: '/products/cake' },
-          { id: 'meal', label: 'High Protein Castor Meal', url: '/products/meal' },
-          {
-            id: 'oil',
-            label: 'Refined Castor Oil First Stage Grade (F.S.G)',
-            url: '/products/oil',
-          },
-        ],
-      },
-    ],
+export const Footer = ({ data }: FooterProps) => {
+  if (!data) return null;
 
-    contact: {
-      title: 'Contact Us',
-      items: [
-        {
-          id: 'person',
-          icon: faUser,
-          label: 'Patel Jitendra Rameshbhai',
-        },
-        {
-          id: 'phone1',
-          icon: faPhone,
-          label: '+91 8980121363',
-          value: 'tel:+918980121363',
-          isLink: true,
-        },
-        {
-          id: 'phone2',
-          icon: faMobileScreenButton,
-          label: '+91 7946041548',
-          value: 'tel:+917946041548',
-          isLink: true,
-        },
-        {
-          id: 'email',
-          icon: faEnvelope,
-          label: 'vandanfoodsltd@gmail.com',
-          value: 'mailto:vandanfoodsltd@gmail.com',
-          isLink: true,
-        },
-        {
-          id: 'office',
-          icon: faLocationDot,
-          label:
-            'Registered Address: 503/B, Wall Street-1, Opp. Orient Club, Nr. Rly. Crossing, Ellisbridge, Ahmedabad – 380006.',
-        },
-        {
-          id: 'plant',
-          icon: faWarehouse,
-          label:
-            'Plant Address: Survey No 2554/2, Motap Dhinoj Road, Near Sitapur Village, Dhinoj Patan – 384 225.',
-        },
-      ],
-    },
-  };
-  const { contact } = footerConfig;
-
+  const { logo, description, columns, copyrightText } = data;
   return (
     <footer
       className="relative text-white bg-top  bg-cover"
@@ -106,30 +31,68 @@ export const Footer = () => {
 
       <Container className=" py-16 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <div>
-          <div className="flex justify-start mb-4">
-            <ImageBase src={logo} alt="" className="h-30.25 w-30.25 object-contain" />
-          </div>
-          <p className=" text-[15px] leading-6 max-w-[260px] font-manrope font-medium">
-            Our company is an ISO 9001:2015 standards certified company.We focus on delivering
-            high-quality Castor Oil,Castor Cake that meet international standards and customer
-            requirements.
-          </p>
+          {logo?.url && (
+            <div className="flex justify-start mb-4">
+              <ImageBase
+                src={logo.url}
+                alt={logo.alternativeText || 'Footer Logo'}
+                className="lg:h-30.25 lg:w-30.25 h-24 w-24 object-contain"
+                height={30.25}
+                width={30.25}
+              />
+            </div>
+          )}
+          {description && (
+            <p className="text-[15px] leading-6 max-w-[260px] font-manrope font-medium">
+              {description}
+            </p>
+          )}
         </div>
-        {footerConfig.linkGroups.map((i) => (
-          <FooterLinks items={i.items} key={i.id} title={i.title} />
-        ))}
-        <FooterContact title={contact.title} items={contact.items} />
+        {columns.map((column, index) => {
+          if (column.__typename === 'ComponentVandanFoodFooterSection') {
+            return (
+              <FooterLinks
+                key={index}
+                title={column.title}
+                items={column.links.map((link) => ({
+                  id: link.id,
+                  label: link.text,
+                  url: link.href || `/${link.text.toLowerCase().replace(/\s+/g, '-')}`,
+                  icon: link.icon,
+                }))}
+              />
+            );
+          }
+
+          if (column.__typename === 'ComponentVandanFoodContactSection') {
+            return (
+              <FooterContact
+                key={column.id}
+                title={column.title}
+                items={column.items.map((item) => ({
+                  id: item.content,
+                  label: item.content,
+                  value: item.link || undefined,
+                  isLink: !!item.link,
+                  icon: item.icon?.url
+                    ? {
+                        url: item.icon.url,
+                        alternativeText: item.icon.alternativeText,
+                      }
+                    : getContactFallbackIcon(item.content),
+                }))}
+              />
+            );
+          }
+
+          return null;
+        })}
       </Container>
 
       <div className="relative w-full bg-[#1f4f3b] text-center py-4">
-        <p className="text-[14px] font-manrope font-medium">
-          Copyright © {new Date().getFullYear()}{' '}
-          <span className="text-light-green">Vandan foods</span>. Created by –
-          <a href="https://paritechnology.com" target="_blank" className="text-light-green  ps-1">
-            Pari Technology
-          </a>
-          .
-        </p>
+        <div className="[&_p]:text-[14px] [&_p]:font-manrope [&_p]:font-medium [&_span]:text-light-green [&_a]:text-light-green [&_a]:no-underline">
+          <RichText content={copyrightText || ''} />
+        </div>
       </div>
     </footer>
   );
