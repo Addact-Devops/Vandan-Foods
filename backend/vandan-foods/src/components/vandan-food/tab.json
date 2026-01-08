@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_vandan_food_tabs",
+  "info": {
+    "displayName": "Tab"
+  },
+  "options": {},
+  "attributes": {
+    "tabTitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}
