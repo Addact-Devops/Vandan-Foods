@@ -227,6 +227,24 @@ export interface VandanFoodSocialIcon extends Struct.ComponentSchema {
   };
 }
 
+export interface VandanFoodTab extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_tabs';
+  info: {
+    displayName: 'Tab';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    tabTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface VandanFoodTitle extends Struct.ComponentSchema {
   collectionName: 'components_vandan_food_titles';
   info: {
@@ -270,6 +288,7 @@ declare module '@strapi/strapi' {
       'vandan-food.menu-item': VandanFoodMenuItem;
       'vandan-food.promo': VandanFoodPromo;
       'vandan-food.social-icon': VandanFoodSocialIcon;
+      'vandan-food.tab': VandanFoodTab;
       'vandan-food.title': VandanFoodTitle;
       'vandan-food.top-bar': VandanFoodTopBar;
     }
