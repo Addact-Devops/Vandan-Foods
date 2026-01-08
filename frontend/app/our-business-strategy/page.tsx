@@ -11,7 +11,10 @@ const OurBusinessStrategy = async () => {
 
   return (
     <div>
-      <HeroBanner heroBannerData={heroBannerData} />
+      <HeroBanner
+        heroBannerData={heroBannerData}
+        crumbs={[{ label: 'Home', href: '/', isCurrent: true }]}
+      />
       <Container className="px-10">
         <ContentRender headlineArrData={headlineArrData} typeOfHeading={'h2'} />
       </Container>
