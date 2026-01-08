@@ -4,6 +4,7 @@ import { headerQuery } from '@/graphql/queries/header';
 import type { Metadata } from 'next';
 import { Handlee, Jost, Manrope, Marcellus } from 'next/font/google';
 import './globals.css';
+import { footerQuery } from '@/graphql/queries/footer';
 
 // Define Handlee font
 const handlee = Handlee({
@@ -36,7 +37,7 @@ const jost = Jost({
 export const metadata: Metadata = {
   title: 'Vandan Foods',
 };
-const { header } = await headerQuery();
+const [headerRes, footerRes] = await Promise.all([headerQuery(), footerQuery()]);
 
 export default function RootLayout({
   children,
@@ -48,9 +49,9 @@ export default function RootLayout({
       <body
         className={`${handlee.variable} ${manrope.variable} ${marcellus.variable}  ${jost.variable} antialiased`}
       >
-        <Header data={header} />
+        <Header data={headerRes.header} />
         {children}
-        <Footer />
+        <Footer data={footerRes.footer} />
       </body>
     </html>
   );
