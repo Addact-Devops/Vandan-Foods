@@ -10,6 +10,7 @@ export interface HeroBannerProps {
       width: number;
     };
   };
+  crumbs?: Crumb[];
 }
 
 export interface ContentRenderProps {
