@@ -107,7 +107,13 @@ export const Footer = () => {
       <Container className=" py-16 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <div>
           <div className="flex justify-start mb-4">
-            <ImageBase src={logo} alt="" className="h-30.25 w-30.25 object-contain" />
+            <ImageBase
+              src={logo}
+              alt=""
+              className="h-30.25 w-30.25 object-contain"
+              width={30.25}
+              height={30.25}
+            />
           </div>
           <p className=" text-[15px] leading-6 max-w-[260px] font-manrope font-medium">
             Our company is an ISO 9001:2015 standards certified company.We focus on delivering

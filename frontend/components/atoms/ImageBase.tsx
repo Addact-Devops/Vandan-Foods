@@ -16,15 +16,17 @@ const ImageBase = ({
     resolvedSrc = `${process.env.NEXT_PUBLIC_MEDIA_URL}${src}`;
   }
 
+  const shouldFill = fill ?? (!width || !height);
+
   return (
     <div className={fill ? 'relative w-full h-full' : ''}>
       <Image
         src={resolvedSrc}
         alt={alt}
-        fill={fill}
+        fill={shouldFill}
         priority={priority}
-        width={!fill ? width : undefined}
-        height={!fill ? height : undefined}
+        width={!shouldFill ? width : undefined}
+        height={!shouldFill ? height : undefined}
         className={className}
       />
     </div>

@@ -1,8 +1,9 @@
-import type { Metadata } from 'next';
-import { Handlee, Manrope, Marcellus, Jost } from 'next/font/google';
-import './globals.css';
-import { Header } from '@/components/organisms/Header';
 import { Footer } from '@/components/organisms/Footer';
+import { Header } from '@/components/organisms/Header';
+import { headerQuery } from '@/graphql/queries/header';
+import type { Metadata } from 'next';
+import { Handlee, Jost, Manrope, Marcellus } from 'next/font/google';
+import './globals.css';
 
 // Define Handlee font
 const handlee = Handlee({
@@ -35,6 +36,7 @@ const jost = Jost({
 export const metadata: Metadata = {
   title: 'Vandan Foods',
 };
+const { header } = await headerQuery();
 
 export default function RootLayout({
   children,
@@ -46,7 +48,7 @@ export default function RootLayout({
       <body
         className={`${handlee.variable} ${manrope.variable} ${marcellus.variable}  ${jost.variable} antialiased`}
       >
-        <Header />
+        <Header data={header} />
         {children}
         <Footer />
       </body>
