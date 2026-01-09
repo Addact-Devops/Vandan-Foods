@@ -13,7 +13,10 @@ const OurBusinessStrategy = async () => {
     <div>
       <HeroBanner
         heroBannerData={heroBannerData}
-        crumbs={[{ label: 'Home', href: '/', isCurrent: true }]}
+        crumbs={[
+          { label: 'Home', href: '/', isCurrent: false },
+          { label: 'Our-Business-Strategy', href: '', isCurrent: true },
+        ]}
       />
       <Container className="px-10">
         <ContentRender headlineArrData={headlineArrData} typeOfHeading={'h2'} />

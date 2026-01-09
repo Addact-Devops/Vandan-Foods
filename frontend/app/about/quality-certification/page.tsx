@@ -12,7 +12,8 @@ export default async function QualityCertificationPage() {
         heroBannerData={banner}
         crumbs={[
           { label: 'Home', href: '/' },
-          { label: 'About Us', href: '/about', isCurrent: true },
+          { label: 'About Us', href: '/about', isCurrent: false },
+          { label: 'Quality-Certification', isCurrent: true },
         ]}
       />
     </>

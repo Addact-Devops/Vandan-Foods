@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { Handlee, Jost, Manrope, Marcellus } from 'next/font/google';
 import './globals.css';
 import { footerQuery } from '@/graphql/queries/footer';
+import ScrollToTop from '@/components/atoms/ScrollBar';
 
 // Define Handlee font
 const handlee = Handlee({
@@ -50,6 +51,8 @@ export default function RootLayout({
         className={`${handlee.variable} ${manrope.variable} ${marcellus.variable}  ${jost.variable} antialiased`}
       >
         <Header data={headerRes.header} />
+
+        <ScrollToTop />
         {children}
         <Footer data={footerRes.footer} />
       </body>
