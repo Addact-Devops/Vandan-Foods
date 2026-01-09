@@ -141,13 +141,13 @@ export const Header = ({ data }: HeaderProps) => {
             className="flex lg:hidden ml-auto mr-4 "
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <FontAwesomeIcon icon={faBars} className="w-6 h-6 text-primary" />
+            <FontAwesomeIcon icon={faBars} className="w-6 h-6 text-dark-gray" />
           </button>
 
           {isMobileMenuOpen && (
             <div className="fixed inset-0 z-50 ">
               <div className="absolute right-0 top-0 h-full w-full bg-white shadow-xl box-border p-8 overflow-y-hidden overflow-x-hidden leading-[1.4em] flex flex-col">
-                <div className="flex items-center justify-end absolute right-7 top-3">
+                <div className="flex items-center justify-end absolute right-7 top-3 ">
                   <button onClick={() => setIsMobileMenuOpen(false)}>
                     <FontAwesomeIcon icon={faXmark} className="w-5 h-5 text-lg text-dark-gray" />
                   </button>

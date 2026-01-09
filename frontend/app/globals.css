@@ -35,16 +35,25 @@
   --font-family-marcellus: var(--font-marcellus);
   --font-family-jost: var(--font-jost);
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-manrope), sans-serif;
+}
+
+@keyframes bg-move {
+  0% {
+    background-position: center 0;
+  }
+  100% {
+    background-position: center 200%;
+  }
 }
