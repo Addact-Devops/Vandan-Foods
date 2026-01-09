@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function NotFound() {
+const NotFound = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -25,16 +25,7 @@ export default function NotFound() {
         404
       </h1>
 
-      <p
-        className="uppercase mb-4"
-        style={{
-          fontFamily: 'Jost, sans-serif',
-          fontSize: '30.8556px',
-          fontWeight: 500,
-          lineHeight: '37.0267px',
-          color: '#000',
-        }}
-      >
+      <p className="mb-4 uppercase font-['Jost'] text-[30.8556px] font-medium leading-[37.0267px] text-black">
         {`That page can't be found`}
       </p>
 
@@ -43,4 +34,6 @@ export default function NotFound() {
       </p>
     </section>
   );
-}
+};
+
+export default NotFound;

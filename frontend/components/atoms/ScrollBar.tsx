@@ -1,8 +1,11 @@
 'use client';
 
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef } from 'react';
+import { CircleIcon } from './Icons';
 
-export default function ScrollToTop() {
+const ScrollToTop = () => {
   const circleRef = useRef<SVGCircleElement | null>(null);
 
   useEffect(() => {
@@ -53,25 +56,11 @@ export default function ScrollToTop() {
         transition-transform
       "
     >
-      {/* SVG Progress Ring */}
-      <svg className="-rotate-90 absolute" width="48" height="48" viewBox="0 0 100 100">
-        <circle
-          ref={circleRef}
-          cx="50"
-          cy="50"
-          r="45"
-          className="
-            fill-transparent
-            stroke-black
-            stroke-[6]
-            transition-[stroke-dashoffset]
-            duration-75
-          "
-        />
-      </svg>
+      <CircleIcon ref={circleRef} />
 
-      {/* Arrow */}
-      <span className="text-lg font-bold">↑</span>
+      <FontAwesomeIcon icon={faArrowUp} className="text-lg font-bold text-dark-gray" />
     </button>
   );
-}
+};
+
+export default ScrollToTop;

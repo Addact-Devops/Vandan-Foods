@@ -43,3 +43,8 @@ export interface ImageBaseProps {
   width?: number;
   height?: number;
 }
+
+export interface IconProps {
+  className?: string;
+  ref?: React.Ref<SVGCircleElement>;
+}
