@@ -1,5 +1,26 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface VandanFoodAboutPromo extends Struct.ComponentSchema {
+  collectionName: 'components_vandan_food_about_promos';
+  info: {
+    displayName: 'About Promo';
+  };
+  attributes: {
+    cards: Schema.Attribute.Relation<'oneToMany', 'api::card.card'>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image1: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image2: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image3: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface VandanFoodBanner extends Struct.ComponentSchema {
   collectionName: 'components_vandan_food_banners';
   info: {
@@ -273,6 +294,7 @@ export interface VandanFoodTopBar extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'vandan-food.about-promo': VandanFoodAboutPromo;
       'vandan-food.banner': VandanFoodBanner;
       'vandan-food.base-heading': VandanFoodBaseHeading;
       'vandan-food.card': VandanFoodCard;

@@ -441,6 +441,7 @@ export interface ApiAboutCompanyAboutCompany extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    aboutPromo: Schema.Attribute.Component<'vandan-food.about-promo', false>;
     banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -679,6 +680,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    aboutPromo: Schema.Attribute.Component<'vandan-food.about-promo', false>;
     achivements: Schema.Attribute.Component<'vandan-food.head-line', false>;
     achivementsCards: Schema.Attribute.Relation<'oneToMany', 'api::card.card'>;
     bannerCarousels: Schema.Attribute.Relation<
