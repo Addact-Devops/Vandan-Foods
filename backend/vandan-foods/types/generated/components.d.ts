@@ -6,6 +6,10 @@ export interface VandanFoodAboutPromo extends Struct.ComponentSchema {
     displayName: 'About Promo';
   };
   attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    bigImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     cards: Schema.Attribute.Relation<'oneToMany', 'api::card.card'>;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
@@ -14,9 +18,9 @@ export interface VandanFoodAboutPromo extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    image1: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    image2: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    image3: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    smallImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     title: Schema.Attribute.String;
   };
 }
